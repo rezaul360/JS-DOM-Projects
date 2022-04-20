@@ -88,7 +88,20 @@ function generateHexColor({ red, green, blue }) {
 function generateRGBColor({ red, green, blue }) {
   return `rgb(${red}, ${green}, ${blue})`;
 }
-// Convert hex color to RGB
+
+/**
+ * Convert hex color to RGB
+ *
+ * @param {string} hex
+ */
+function hexToRGB(hex) {
+  const red = hex.slice(0, 2);
+  const green = hex.slice(2, 5);
+  const blue = hex.slice(5);
+  console.log(red, green, blue);
+}
+
+hexToRGB("FFFFFF");
 
 function generateToastMessage(msg) {
   div = document.createElement("div");
