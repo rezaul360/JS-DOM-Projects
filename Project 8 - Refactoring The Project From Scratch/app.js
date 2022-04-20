@@ -24,6 +24,7 @@ function main() {
   const output2 = document.getElementById("output2");
   const changeBtn = document.getElementById("change-btn");
   const copyBtn = document.getElementById("copy-btn");
+  const copyBtn2 = document.getElementById("copy-btn2");
 
   changeBtn.addEventListener("click", function () {
     const color = generateColorDecimal();
@@ -42,6 +43,19 @@ function main() {
     }
     if (isValidHex(output.value)) {
       generateToastMessage(`#${output.value} copied`);
+    } else {
+      alert("Invalid Color Code");
+    }
+  });
+
+  copyBtn2.addEventListener("click", function () {
+    navigator.clipboard.writeText(`#${output2.value}`);
+    if (div !== null) {
+      div.remove();
+      div = null;
+    }
+    if (isValidHex(output2.value)) {
+      generateToastMessage(`#${output2.value} copied`);
     } else {
       alert("Invalid Color Code");
     }
