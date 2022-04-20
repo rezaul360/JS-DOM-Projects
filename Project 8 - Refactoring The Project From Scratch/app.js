@@ -53,6 +53,7 @@ function main() {
       output.value = color.toUpperCase();
       if (isValidHex(color)) {
         root.style.backgroundColor = `#${color}`;
+        output2.value = hexToRGB(color);
       }
     }
   });
@@ -95,13 +96,14 @@ function generateRGBColor({ red, green, blue }) {
  * @param {string} hex
  */
 function hexToRGB(hex) {
-  const red = hex.slice(0, 2);
-  const green = hex.slice(2, 5);
-  const blue = hex.slice(5);
-  console.log(red, green, blue);
+  const red = parseInt(hex.slice(0, 2), 16);
+  const green = parseInt(hex.slice(2, 4), 16);
+  const blue = parseInt(hex.slice(4), 16);
+
+  return `rgb${red}, ${green}, ${blue}`;
 }
 
-hexToRGB("FFFFFF");
+console.log(hexToRGB("FFFFFF"));
 
 function generateToastMessage(msg) {
   div = document.createElement("div");
